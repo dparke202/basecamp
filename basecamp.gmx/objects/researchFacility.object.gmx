@@ -26,54 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>/// Configs
-availableSlots = 2;
+availableSlots = 'N/A';
 buildingLevel = 1;
 buildingCost = 150;
 upgradeCost = 100;
 buildingHealth = 250;
 update = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Research Facility
-/*
-    switch(buildingLevel){
-        case 1:
-            availableSlots = 2;
-            upgradeCost = 100;
-            buildingHealth = 250;
-        case 2:
-            availableSlots = 3;
-            upgradeCost = 150;
-            buildingHealth = 250;
-        case 3:
-            availableSlots = 4;
-            upgradeCost = 250;
-            buildingHealth = 250;
-        case 4:
-            availableSlots = 6;
-            buildingHealth = 600;
-    }
-*/
+type = "Structure";
 </string>
           </argument>
         </arguments>
@@ -96,9 +55,35 @@ update = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x + 80, y, upgradeMenu);
-update = true;
-
+            <string>if(update)
+    update = false;
+else
+    update = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+if(update)
+    upgrade(self);
 </string>
           </argument>
         </arguments>

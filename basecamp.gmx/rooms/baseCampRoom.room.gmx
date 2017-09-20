@@ -54,7 +54,7 @@
     <instance objName="gameController" x="0" y="0" name="inst_B5F257E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="baseCamp" x="512" y="384" name="inst_33A01828" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="hudDisplay" x="0" y="32" name="inst_12DD17D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="trainingFacility" x="192" y="288" name="inst_1E2307E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="zombie" x="0" y="224" name="inst_C2229A49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

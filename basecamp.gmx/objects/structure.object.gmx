@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,53 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Game Controller
-/*
-
-*/
-pause = false;
-cd = 480;
-randomize(); 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// HOLD a button to pause the game
-if (keyboard_check(vk_escape)==true)  // or the button you want
-   pause=true;
-    
-while(pause==true){ // infinite loop
-   if (keyboard_check_direct(vk_escape)==false)
-      pause=false;
-}
-
-if(!instance_exists(zombie)){
-    cd--;
-}
-if(cd &lt;= 0){
-    spawnEnemy();
-    cd = 480;
-}
-
-
+            <string>type = "Structure";
 </string>
           </argument>
         </arguments>

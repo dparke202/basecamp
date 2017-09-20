@@ -11,6 +11,7 @@
     <sprite>sprites\trainingSprite</sprite>
     <sprite>sprites\rearchSprite</sprite>
     <sprite>sprites\upgradeMenuSprite</sprite>
+    <sprite>sprites\zombieSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -21,11 +22,17 @@
     <script>scripts\makeWork.gml</script>
     <script>scripts\generateResources.gml</script>
     <script>scripts\upgrade.gml</script>
+    <script>scripts\unload.gml</script>
+    <script>scripts\zombieAttack.gml</script>
+    <script>scripts\drawAtPosition.gml</script>
+    <script>scripts\destroy.gml</script>
+    <script>scripts\drawLootNotification.gml</script>
+    <script>scripts\attackZombie.gml</script>
+    <script>scripts\spawnEnemy.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="controllers">
       <object>objects\gameController</object>
-      <object>objects\upgradeMenu</object>
       <object>objects\hudDisplay</object>
     </objects>
     <objects name="models">
@@ -36,6 +43,7 @@
     <objects name="persons">
       <object>objects\survivor</object>
     </objects>
+    <object>objects\zombie</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\baseCampRoom</room>

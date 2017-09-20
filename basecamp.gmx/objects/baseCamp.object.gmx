@@ -26,11 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Base Camp Configs
-/*
-    globalvar baseCampLevel
-        Upgrade level of your base camp.
-        This will put limitations on other upgradable structures and limit property size.
-        
+/*    
     globalvar status
         Status is the condition your base camp is in.
         Other survivors will join your community if status is in 'ok' conditions.
@@ -40,30 +36,35 @@
             2 - starving
             3 - no more beds
             4 - too many wounded
-            
-    globalvar survivors
-        Total # of survivors allowed at your base camp.
-        Increase the allowed amount by upgrading your base camp. 
-        
+    
     globalvar structureCount
         Total # of structures allowed at your base camp.
-        Increase the allowed amount by expanding your base camps property. 
+        Increase the allowed amount by expanding your base camps property.
+            
+    availableSlots
+        Total # of survivors allowed at your base camp.
+        Increase the allowed amount by upgrading your base camp. 
+    
+    structureLevel
+        Upgrade level of your base camp.
+        This will put limitations on other upgradable structures and limit property size.
+  
 */
-
-globalvar baseCampLevel;
-baseCampLevel = 1;
-
-globalvar beds;
-beds = 4;
-
 globalvar status;
 status = 0;
-
-globalvar survivors;
-survivors = 2;
-
 globalvar structureCount;
 structureCount = 4;
+
+availableSlots = 2;
+structureLevel = 1;
+upgradeCost = 100;
+buildingHealth = 300;
+buildingCost = 'N/A';
+type = "Structure";
+
+
+
+
 
 /*
     globalvar food
@@ -118,6 +119,14 @@ buildingMaterials = 0;
 globalvar buildingMaterialsCap;
 buildingMaterialsCap = 100;
 
+globalvar gatheredFood;
+gatheredFood = 0;
+globalvar gatheredMeds;
+gatheredMeds = 0;
+globalvar gatheredWeapons;
+gatheredWeapons = 0;
+globalvar gatheredMaterials;
+gatheredMaterials = 0;
 /*
     globalvar cts
         
@@ -151,6 +160,8 @@ globalvar cts;
 cts = 18000;
 globalvar pausedCts;
 pausedCts = 0;
+/// For update menu
+update = false;
 
 instance_create(room_width /2 + 150, room_height/2 + 50, survivor);
 instance_create(room_width /2 - 150, room_height/2 + 50, survivor);
@@ -181,7 +192,6 @@ instance_create(room_width /2 - 150, room_height/2 + 50, survivor);
 
 /*
     globalvar status
-    globalvar survivors
     globalvar structureCount
     globalvar foodCap
     globalvar medsCap
@@ -192,28 +202,39 @@ instance_create(room_width /2 - 150, room_height/2 + 50, survivor);
     globalvar weapons
     globalvar buildingMaterials
     
-    gameController::baseCampHealth;
-    gameController::playerHealth;
-    gameController::zombieHealth;
+    initial values
+        availableSlots = 4;
+        structureLevel = 1;
+        buildingCost = 50;
+        upgradeCost = 100;
+        buildingHealth = 200;
               
 */
 
-if(baseCampHealth &lt;= 0 || playerHealth &lt;=0){
+if(buildingHealth &lt;= 0){
     // Game over event
+    room_restart();
 }else{
     // Game play.
+    if(instance_exists(zombie))
+        status = 2;
+    
     
     if(pausedCts == 0 &amp;&amp; status == 0)
         cts--;
         
     switch(status){
+        case 1: 
+            pausedCts = 0;
+            break;
+        case 2:
         case 3:
         case 4:
             pausedCts = cts;
             break;
     }
     if(cts &lt;= 0 &amp;&amp; pausedCts == 0){
-        if(beds &gt; instance_number(survivors)){
+        if(availableSlots &gt; instance_number(survivor)){
             cts = 18000;
             instance_create(room_width/2 - 150, room_height/2 + 50, survivor);
         }else{
@@ -223,6 +244,57 @@ if(baseCampHealth &lt;= 0 || playerHealth &lt;=0){
     }
     
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(update)
+    update = false;
+else
+    update = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+if(update)
+    upgrade(self);
 </string>
           </argument>
         </arguments>

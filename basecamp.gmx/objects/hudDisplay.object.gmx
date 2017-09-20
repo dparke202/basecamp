@@ -60,7 +60,6 @@ if(pausedCts == 0){
         totalTime = cts;
     totalTime -= (delta_time/1000000)*room_speed;
 }
-
 /*  additional formatted time    */
 </string>
           </argument>
@@ -96,38 +95,16 @@ if(seconds &lt; 10)
     
 if(pausedCts == 0)
     draw_text(20,20,string(totalTime div 3600) + ":" + string(seconds));
+else
+    draw_text(20,20,"Fix status to recruit more people.");
     
 /*  End of Call to Survivors timer  */
+    
+draw_text(20, 40, "BaseFood: " + string(food));
+draw_text(20, 60, "BaseMeds: " + string(meds));
+draw_text(20, 80, "BaseWeapons: " + string(weapons));
+draw_text(20, 100, "BaseMaterials: " + string(buildingMaterials));
 
-/*  Build Mode  */
-draw_text(20, 40, "Food: " +  string(survivor.foodGrabbed));
-draw_text(20, 60, "Meds: " + string(survivor.medsGrabbed));
-draw_text(20, 80, "Weapons: " + string(survivor.weaponsGrabbed));
-draw_text(20, 100, "Materials: " + string(survivor.buildingMaterialsGrabbed));
-draw_text(20, 120, "BaseFood: " + string(food));
-draw_text(20, 140, "BaseMeds: " + string(meds));
-draw_text(20, 160, "BaseWeapons: " + string(weapons));
-draw_text(20, 180, "BaseMaterials: " + string(buildingMaterials));
-
-
-
-if(buildMode){
-    draw_text(room_width/2, 25, "Build Mode");
-}
-if(instance_exists(researchFacility))
-    if(researchFacility.update)
-        upgrade('R');
-if(instance_exists(trainingFacility))
-    if(trainingFacility.update)
-        upgrade('T');
-/*
-if(instance_exists(researchFacility))
-    if(researchFacility.update)
-        upgrade('R');
-if(instance_exists(researchFacility))
-    if(researchFacility.update)
-        upgrade('R');
-*/  
 </string>
           </argument>
         </arguments>
