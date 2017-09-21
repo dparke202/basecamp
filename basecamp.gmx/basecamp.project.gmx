@@ -3,7 +3,9 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Isometric - Tree Collection</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\baseCampSprite</sprite>
@@ -12,6 +14,26 @@
     <sprite>sprites\rearchSprite</sprite>
     <sprite>sprites\upgradeMenuSprite</sprite>
     <sprite>sprites\zombieSprite</sprite>
+    <sprites name="Set_01">
+      <sprite>sprites\spr_Tree_01_01</sprite>
+      <sprite>sprites\spr_Tree_01_02</sprite>
+      <sprite>sprites\spr_Tree_01_03</sprite>
+      <sprite>sprites\spr_Tree_01_04</sprite>
+      <sprite>sprites\spr_Tree_01_05</sprite>
+      <sprite>sprites\spr_Tree_01_06</sprite>
+      <sprite>sprites\spr_Tree_01_07</sprite>
+      <sprite>sprites\spr_Tree_01_08</sprite>
+    </sprites>
+    <sprites name="Set_02">
+      <sprite>sprites\spr_Tree_02_01</sprite>
+      <sprite>sprites\spr_Tree_02_02</sprite>
+      <sprite>sprites\spr_Tree_02_03</sprite>
+      <sprite>sprites\spr_Tree_02_04</sprite>
+      <sprite>sprites\spr_Tree_02_05</sprite>
+      <sprite>sprites\spr_Tree_02_06</sprite>
+      <sprite>sprites\spr_Tree_02_07</sprite>
+      <sprite>sprites\spr_Tree_02_08</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

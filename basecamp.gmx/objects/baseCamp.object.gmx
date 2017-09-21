@@ -211,6 +211,17 @@ instance_create(room_width /2 - 150, room_height/2 + 50, survivor);
               
 */
 
+switch(status){
+    case 1: 
+        pausedCts = 0;
+        break;
+    case 2:
+    case 3:
+    case 4:
+        pausedCts = cts;
+        break;
+}
+
 if(buildingHealth &lt;= 0){
     // Game over event
     room_restart();
@@ -218,21 +229,10 @@ if(buildingHealth &lt;= 0){
     // Game play.
     if(instance_exists(zombie))
         status = 2;
-    
-    
+        
     if(pausedCts == 0 &amp;&amp; status == 0)
         cts--;
         
-    switch(status){
-        case 1: 
-            pausedCts = 0;
-            break;
-        case 2:
-        case 3:
-        case 4:
-            pausedCts = cts;
-            break;
-    }
     if(cts &lt;= 0 &amp;&amp; pausedCts == 0){
         if(availableSlots &gt; instance_number(survivor)){
             cts = 18000;

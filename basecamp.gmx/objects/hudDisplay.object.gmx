@@ -105,6 +105,8 @@ draw_text(20, 60, "BaseMeds: " + string(meds));
 draw_text(20, 80, "BaseWeapons: " + string(weapons));
 draw_text(20, 100, "BaseMaterials: " + string(buildingMaterials));
 
+draw_sprite(spr_Tree_01_01, false, room_width-30, room_height/2);
+
 </string>
           </argument>
         </arguments>

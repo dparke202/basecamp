@@ -30,7 +30,7 @@
 
 */
 pause = false;
-cd = 480;
+cd = 2500;
 randomize(); 
 </string>
           </argument>
@@ -68,7 +68,7 @@ if(!instance_exists(zombie)){
 }
 if(cd &lt;= 0){
     spawnEnemy();
-    cd = 480;
+    cd = 2500;
 }
 
 
