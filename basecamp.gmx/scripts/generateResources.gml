@@ -8,8 +8,6 @@ var m = irandom_range(10, 45);
 if(j == 0)
     j+=1;
 
-materialsGrabbed += m;
-    /*
 if (fav <= odds) {
    if(fav >= 0 && fav <= 5)
         foodGrabbed += f;
@@ -38,20 +36,6 @@ if (fav <= odds) {
         materialsGrabbed += m;   
    if(fav >= 56 && fav <= 60)
         materialsGrabbed += m;
+   if(fav > 60)
+        materialsGrabbed += m;
 }
-*/
-if(materialsGrabbed > 0)
-    show_debug_message("Found " + string(materialsGrabbed) + " Materials");
-if(foodGrabbed > 0)
-    show_debug_message("Found " + string(foodGrabbed) + " Food");
-if(medsGrabbed > 0)
-    show_debug_message("Found " + string(medsGrabbed) + " Meds");
-if(weaponsGrabbed > 0)
-    show_debug_message("Found " + string(weaponsGrabbed) + " Weapons");
- 
-gatheredFood += foodGrabbed;
-gatheredMeds += medsGrabbed;
-gatheredWeapons += weaponsGrabbed;
-gatheredMaterials += materialsGrabbed;
-
-

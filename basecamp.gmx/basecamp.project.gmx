@@ -14,26 +14,10 @@
     <sprite>sprites\rearchSprite</sprite>
     <sprite>sprites\upgradeMenuSprite</sprite>
     <sprite>sprites\zombieSprite</sprite>
-    <sprites name="Set_01">
-      <sprite>sprites\spr_Tree_01_01</sprite>
-      <sprite>sprites\spr_Tree_01_02</sprite>
-      <sprite>sprites\spr_Tree_01_03</sprite>
-      <sprite>sprites\spr_Tree_01_04</sprite>
-      <sprite>sprites\spr_Tree_01_05</sprite>
-      <sprite>sprites\spr_Tree_01_06</sprite>
-      <sprite>sprites\spr_Tree_01_07</sprite>
-      <sprite>sprites\spr_Tree_01_08</sprite>
-    </sprites>
-    <sprites name="Set_02">
-      <sprite>sprites\spr_Tree_02_01</sprite>
-      <sprite>sprites\spr_Tree_02_02</sprite>
-      <sprite>sprites\spr_Tree_02_03</sprite>
-      <sprite>sprites\spr_Tree_02_04</sprite>
-      <sprite>sprites\spr_Tree_02_05</sprite>
-      <sprite>sprites\spr_Tree_02_06</sprite>
-      <sprite>sprites\spr_Tree_02_07</sprite>
-      <sprite>sprites\spr_Tree_02_08</sprite>
-    </sprites>
+    <sprite>sprites\weaponsCache</sprite>
+    <sprite>sprites\materialsCache</sprite>
+    <sprite>sprites\foodCache</sprite>
+    <sprite>sprites\medsCache</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -46,12 +30,16 @@
     <script>scripts\upgrade.gml</script>
     <script>scripts\unload.gml</script>
     <script>scripts\zombieAttack.gml</script>
-    <script>scripts\drawAtPosition.gml</script>
-    <script>scripts\destroy.gml</script>
     <script>scripts\drawLootNotification.gml</script>
+    <script>scripts\destroy.gml</script>
     <script>scripts\attackZombie.gml</script>
     <script>scripts\spawnEnemy.gml</script>
+    <script>scripts\drawAmount.gml</script>
+    <script>scripts\checkWounds.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\resourcesFont</font>
+  </fonts>
   <objects name="objects">
     <objects name="controllers">
       <object>objects\gameController</object>
@@ -61,11 +49,15 @@
       <object>objects\trainingFacility</object>
       <object>objects\researchFacility</object>
       <object>objects\baseCamp</object>
+      <object>objects\foodReserves</object>
+      <object>objects\weaponsReserves</object>
+      <object>objects\materialsReserves</object>
+      <object>objects\medsReserves</object>
     </objects>
     <objects name="persons">
       <object>objects\survivor</object>
+      <object>objects\zombie</object>
     </objects>
-    <object>objects\zombie</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\baseCampRoom</room>

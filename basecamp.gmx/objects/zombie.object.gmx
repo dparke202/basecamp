@@ -193,7 +193,7 @@ if(attack){
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_text(x,y - 15,hp);
+draw_text(x -10,y-30,hp);
 </string>
           </argument>
         </arguments>

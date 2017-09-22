@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set Skill levels
+            <string>/// Create survivor() hp, cd, loot, type
 job = 0;
 workAgain = 180;
 loot = false;
@@ -81,12 +81,13 @@ makeWork();
             <kind>1</kind>
             <string>/// Set jobs for survivors 
 
-if(speed &lt;= 0 &amp;&amp; status != 2){
+if(speed &lt;= 0 &amp;&amp; status == 1){ // After an event that makes player stop moving
     workAgain--;
     if(workAgain &lt;= 0)
         makeWork();
 }
-if(status == 2){
+
+if(status == 2){ // Under Attack
     cd--;
     threat = instance_nearest(x,y,zombie);
     if(instance_exists(threat)){
@@ -94,47 +95,46 @@ if(status == 2){
             move_towards_point(threat.x, threat.y, 1.5);
         else{
             speed = 0;
-            if(cd &lt;=0)
+            if(cd &lt;=0){
                 attackZombie(threat, self.fighting);
+                weapons--;
+            }
         }
-    }else
+    }else{
         status = 1;
+    }
 }
-if(speed &gt; 0){
+
+if(speed &gt; 0){ // Slow down and unload your loot if at camp else keep moving
     if(place_meeting(x,y, baseCamp))
         speed -= 0.0075;
     else
         speed = 1.5;
 }
 
-if(foodGrabbed &gt; 0){
-    loot = true;
-    cd--;
-    if(cd &lt;= 0){
-        loot = false;        
-    }
+if(status == 1){
+    checkWounds();
+    if(!loot){
+        // cd set on outside of room event
+        // Check for Loot
+        if(foodGrabbed &gt; 0)
+            baseCamp.gatheredArray[0] =  baseCamp.gatheredArray[0] + foodGrabbed;
+        if(medsGrabbed &gt; 0)
+            baseCamp.gatheredArray[1] =  baseCamp.gatheredArray[1] + medsGrabbed;
+        if(weaponsGrabbed &gt; 0)
+            baseCamp.gatheredArray[2] =  baseCamp.gatheredArray[2] + weaponsGrabbed;
+        if(materialsGrabbed &gt; 0)
+            baseCamp.gatheredArray[3] =  baseCamp.gatheredArray[3] + materialsGrabbed;
+        if(foodGrabbed &gt; 0 || medsGrabbed &gt; 0 || weaponsGrabbed &gt; 0 || materialsGrabbed &gt; 0)
+            loot = true;
+    }else{
+        // Looted
+        cd--;
+    }        
 }
-if(medsGrabbed &gt; 0){
-    loot = true;
-    cd--;
-    if(cd &lt;= 0){
-        loot = false;        
-    }
-}
-if(weaponsGrabbed &gt; 0){
-    loot = true;
-    cd--;
-    if(cd &lt;= 0){
-        loot = false;        
-    }
-}
-if(materialsGrabbed &gt; 0){
-    loot = true;
-    cd--;
-    if(cd &lt;= 0){
-        loot = false;        
-    }
-}
+
+
+
 /*
 switch(job){
     case 0:
@@ -232,9 +232,16 @@ cd = 90;
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_text(x,y - 15,hp);
-if(loot)
-    drawLootNotification();
+draw_text(x-10,y - 40,hp);
+
+if(foodGrabbed &gt; 0 &amp;&amp; cd &gt; 0)
+    drawLootNotification("Food");
+if(medsGrabbed &gt; 0 &amp;&amp; cd &gt; 0)
+    drawLootNotification("Meds");
+if(weaponsGrabbed &gt; 0 &amp;&amp; cd &gt; 0)
+    drawLootNotification("Weapons");
+if(materialsGrabbed &gt; 0 &amp;&amp; cd &gt; 0)
+    drawLootNotification("Materials");
 </string>
           </argument>
         </arguments>

@@ -51,9 +51,14 @@
   
 */
 globalvar status;
-status = 0;
+status = 1;
 globalvar structureCount;
 structureCount = 4;
+
+gatheredArray[0] = 0;
+gatheredArray[1] = 0;
+gatheredArray[2] = 0;
+gatheredArray[3] = 0;
 
 availableSlots = 2;
 structureLevel = 1;
@@ -62,71 +67,6 @@ buildingHealth = 300;
 buildingCost = 'N/A';
 type = "Structure";
 
-
-
-
-
-/*
-    globalvar food
-        Total # of food at your base camp.
-        Increase the cap amount by upgrading your base camps food cache.
-        
-    globalvar meds
-        Total # of meds at your base camp.
-        Increase the cap amount by upgrading your base camps med cache.
-        
-    globalvar weapons
-        Total # of weapons at your base camp.
-        Increase the cap amount by upgrading your base camps weapons cache.
-        
-    globalvar buildingMaterials 
-        Total # of buildingMaterials at your base camp.
-        Increase the cap amount by upgrading your base camps building materials cache.
-    
-    globalvar foodCap
-    globalvar medsCap
-    globalvar weaponsCap
-    globalvar buildingMaterialsCap
-    
-    Caps are set to not allow stashing extra resources and keeping things interesting.
-    Player will be able to upgrade base camps cache limits of each of the 4 categories.
-    Amounts available will be incremented/decremented throughout game as survivors 
-    will consume food, meds, building materials, beds in base camp, and weapons.
-    
-*/
-
-globalvar food;
-food = 100;
-
-globalvar foodCap;
-foodCap = 1000;
-
-globalvar meds;
-meds = 20;
-
-globalvar medsCap;
-medcap = 100;
-
-globalvar weapons;
-weapons = 5;
-
-globalvar weaponsCap;
-weaponsCap = 10;
-
-globalvar buildingMaterials;
-buildingMaterials = 0;
-
-globalvar buildingMaterialsCap;
-buildingMaterialsCap = 100;
-
-globalvar gatheredFood;
-gatheredFood = 0;
-globalvar gatheredMeds;
-gatheredMeds = 0;
-globalvar gatheredWeapons;
-gatheredWeapons = 0;
-globalvar gatheredMaterials;
-gatheredMaterials = 0;
 /*
     globalvar cts
         
@@ -238,7 +178,6 @@ if(buildingHealth &lt;= 0){
             cts = 18000;
             instance_create(room_width/2 - 150, room_height/2 + 50, survivor);
         }else{
-            show_debug_message(string(cts));
             pausedCts = cts;
         }
     }

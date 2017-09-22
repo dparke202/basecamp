@@ -3,7 +3,7 @@
   <name>Isometric - Tree Collection</name>
   <version>1.0.0</version>
   <packageID>com.bleed.treecollection</packageID>
-  <ProductID>97FC6EB0C64D039EFD28C207434A2E02</ProductID>
+  <ProductID></ProductID>
   <date>25-Apr-2016</date>
   <license>Free to use, also for commercial games.</license>
   <description></description>
@@ -25,7 +25,7 @@
   <iosThirdPartyFrameworks/>
   <ConfigOptions>
     <Config name="Default">
-      <CopyToMask>105553895391470</CopyToMask>
+      <CopyToMask>9223372036854775807</CopyToMask>
     </Config>
   </ConfigOptions>
   <androidPermissions/>

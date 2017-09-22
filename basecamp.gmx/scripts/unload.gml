@@ -1,24 +1,25 @@
 /// function unload()
-if(gatheredFood > 0){
+if(foodGrabbed > 0){
+    baseCamp.gatheredArray[0] -= foodGrabbed;
     food += foodGrabbed;
-    gatheredFood -= foodGrabbed;
-    foodGrabbed = 0;    
+    foodGrabbed = 0;
 }
 
-if(gatheredMeds > 0){
+if(medsGrabbed > 0){
+    baseCamp.gatheredArray[1] -= medsGrabbed;
     meds += medsGrabbed;
-    gatheredMeds -= medsGrabbed;
     medsGrabbed = 0;    
 }
 
-if(gatheredWeapons > 0){
+if(weaponsGrabbed > 0){
+    baseCamp.gatheredArray[2] -= weaponsGrabbed;
     weapons += weaponsGrabbed;
-    gatheredWeapons -= weaponsGrabbed;
     weaponsGrabbed = 0;    
 }
 
-if(gatheredMaterials > 0){
+if(materialsGrabbed > 0){
+    baseCamp.gatheredArray[3] -= materialsGrabbed;
     buildingMaterials += materialsGrabbed;
-    gatheredMaterials -= materialsGrabbed;
     materialsGrabbed = 0;    
 }
+loot = false;

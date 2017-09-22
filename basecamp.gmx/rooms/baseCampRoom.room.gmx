@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1024</width>
   <height>768</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -54,7 +54,10 @@
     <instance objName="gameController" x="0" y="0" name="inst_B5F257E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="baseCamp" x="512" y="384" name="inst_33A01828" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="hudDisplay" x="0" y="32" name="inst_12DD17D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="zombie" x="0" y="224" name="inst_C2229A49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="foodReserves" x="688" y="720" name="inst_7FDA8A64" locked="0" code="" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
+    <instance objName="weaponsReserves" x="768" y="720" name="inst_1D99DF2B" locked="0" code="" scaleX="0.243137255311012" scaleY="0.30588236451149" colour="4294967295" rotation="0"/>
+    <instance objName="materialsReserves" x="864" y="720" name="inst_C13EF58B" locked="0" code="" scaleX="0.379999995231628" scaleY="0.379999995231628" colour="4294967295" rotation="0"/>
+    <instance objName="medsReserves" x="960" y="720" name="inst_58784C77" locked="0" code="" scaleX="0.243137255311012" scaleY="0.243137255311012" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
